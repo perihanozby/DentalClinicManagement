@@ -1,0 +1,20 @@
+﻿@model DentalClinicManagement.Models.AdminUser
+<h2>Admin Girişi</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div>@ViewBag.ErrorMessage</div>
+}
+
+<form asp-action="Login" method="post">
+    <div>
+        <label>Kullanıcı Adı:</label>
+        <input type="text" asp-for="UserName" required />
+    </div>
+    <div>
+        <label>Şifre:</label>
+        <input type="password" asp-for="Password" required />
+    </div>
+    <button type="submit">Giriş Yap</button>
+
+</form>

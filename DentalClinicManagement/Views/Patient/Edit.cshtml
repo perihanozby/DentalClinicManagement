@@ -1,0 +1,32 @@
+﻿@model DentalClinicManagement.Models.Patient
+
+<h2>Hasta Bilgileri Düzenle</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label>Ad:</label>
+        <input asp-for="FirstName" required />
+    </div>
+    <div>
+        <label>Soyad:</label>
+        <input asp-for="LastName" required />
+    </div>
+    <div>
+        <label>Doğum Tarihi:</label>
+        <input asp-for="BirthDate" required />
+    </div>
+    <div>
+        <label>Telefon Numarası:</label>
+        <input asp-for="PhoneNumber" required />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input asp-for="Email" required />
+    </div>
+    <div>
+        <label>Adres:</label>
+        <input asp-for="Address" required />
+    </div>
+    <button type="submit">Güncelle</button>
+</form>

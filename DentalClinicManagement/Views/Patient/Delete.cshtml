@@ -1,0 +1,13 @@
+﻿@model DentalClinicManagement.Models.Patient
+
+<h2>Hasta Sil</h2>
+
+<h4>@Model.FirstName @Model.LastName</h4>
+<p>Bu hastayı silmek istediğinizden emin misiniz?</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Sil</button>
+
+</form>
+<a asp-action="Index">İptal</a>
