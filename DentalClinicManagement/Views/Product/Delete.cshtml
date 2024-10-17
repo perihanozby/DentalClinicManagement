@@ -1,0 +1,13 @@
+﻿@model DentalClinicManagement.Models.Product
+
+<h2>Ürün Sil</h2>
+
+<h4>@Model.Name</h4>
+<p>Bu ürünü silmek istediğinizden emin misiniz?</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Sil</button>
+
+</form>
+<a asp-action="Index">İptal</a>

@@ -31,9 +31,27 @@ app.MapControllerRoute(
     pattern: "{controller=Admin}/{action=Login}/{id?}");
 
 app.MapControllerRoute(
+    name: "doctors",
+    pattern: "Doctors/{action=Index}/{id?}",
+    defaults: new { controller = "Doctor" });
+
+app.MapControllerRoute(
     name: "patients",
     pattern: "Patients/{action=Index}/{id?}",
     defaults: new { controller = "Patient" });
+
+app.MapControllerRoute(
+    name: "products",
+    pattern: "Products/{action=Index}/{id?}",
+    defaults: new { controller = "Product" });
+
+
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "Admin/{action=Login}/{id?}",
+    defaults: new { controller = "Admin", action = "Login" });
+
+
 
 
 app.Run();

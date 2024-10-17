@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DentalClinicManagement.Models.Product>
+
+<h2>Ürün Listesi</h2>
+<a asp-action="Create">Yeni Ürün Ekle</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Miktar</th>
+            <th>Fiyat</th>
+            <th>Tedarikçi</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>@patient.Name</td>
+                <td>@patient.Quantity</td>
+                <td>@patient.Price</td>
+                <td>@patient.Supplier</td>
+                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@patient.Id">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@patient.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

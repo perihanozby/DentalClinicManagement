@@ -1,0 +1,25 @@
+﻿@model DentalClinicManagement.Models.Product
+
+<h2>Ürün Bilgileri Düzenle</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label>Ad:</label>
+        <input asp-for="Name" required />
+    </div>
+    <div>
+        <label>Miktar:</label>
+        <input asp-for="Quantity" required />
+    </div>
+    <div>
+        <label>Fiyat:</label>
+        <input asp-for="Price" required />
+    </div>
+    <div>
+        <label>Tedarikçi:</label>
+        <input asp-for="Supplier" required />
+    </div>
+
+    <button type="submit">Güncelle</button>
+</form>

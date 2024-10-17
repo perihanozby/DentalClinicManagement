@@ -5,22 +5,19 @@ using DentalClinicManagement.Models;
 
 namespace DentalClinicManagement.Controllers
 {
-    public class AppointmentController : Controller
+    public class DoctorController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public AppointmentController(ApplicationDbContext context)
+        public DoctorController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            var appointments = await _context.Appointments
-                .Include(a => a.Patient)  // Hasta bilgilerini de dahil ediyoruz
-                .Include(a => a.Doctor)   // Doktor bilgilerini de dahil ediyoruz
-                .ToListAsync();
-            return View(appointments);
+            var doctors = await _context.Doctors.ToListAsync();
+            return View(doctors);
         }
 
         public IActionResult Create()
@@ -30,32 +27,32 @@ namespace DentalClinicManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Appointment appointment)
+        public async Task<IActionResult> Create(Doctor doctor)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(appointment);
+                _context.Add(doctor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(appointment);
+            return View(doctor);
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var appointment = await _context.Appointments.FindAsync(id);
-            if (appointment == null)
+            var doctor = await _context.Doctors.FindAsync(id);
+            if (doctor == null)
             {
                 return NotFound();
             }
-            return View(appointment);
+            return View(doctor);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Appointment appointment)
+        public async Task<IActionResult> Edit(int id, Doctor doctor)
         {
-            if (id != appointment.Id)
+            if (id != doctor.Id)
             {
                 return NotFound();
             }
@@ -64,12 +61,12 @@ namespace DentalClinicManagement.Controllers
             {
                 try
                 {
-                    _context.Update(appointment);
+                    _context.Update(doctor);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AppointmentExists(appointment.Id))
+                    if (!DoctorExists(doctor.Id))
                     {
                         return NotFound();
                     }
@@ -80,35 +77,35 @@ namespace DentalClinicManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(appointment);
+            return View(doctor);
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            var appointment = await _context.Appointments.FindAsync(id);
-            if (appointment == null)
+            var doctor = await _context.Doctors.FindAsync(id);
+            if (doctor == null)
             {
                 return NotFound();
             }
-            return View(appointment);
+            return View(doctor);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var appointment = await _context.Appointments.FindAsync(id);
-            if (appointment != null)
+            var doctor = await _context.Doctors.FindAsync(id);
+            if (doctor != null)
             {
-                _context.Appointments.Remove(appointment);
+                _context.Doctors.Remove(doctor);
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AppointmentExists(int id)
+        private bool DoctorExists(int id)
         {
-            return _context.Appointments.Any(e => e.Id == id);
+            return _context.Doctors.Any(e => e.Id == id);
         }
     }
 }

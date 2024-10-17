@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DentalClinicManagement.Models.Appointment>
+
+<h1>Randevu Listesi</h1>
+<a asp-controller="Appointment" asp-action="Create">Yeni Randevu Oluştur</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hasta</th>
+            <th>Doktor</th>
+            <th>Tarih</th>
+            <th>Notlar</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.Patient</td>
+                <td>@appointment.Doctor</td>
+                <td>@appointment.Date</td>
+                <td>@appointment.Notes</td>
+                <td>
+                    <a asp-controller="Appointment" asp-action="Edit" asp-route-id="@appointment.Id">Düzenle</a> |
+                    <a asp-controller="Appointment" asp-action="Delete" asp-route-id="@appointment.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
