@@ -4,7 +4,7 @@ ASP.NET Core 7 veya daha yeni bir sürüm Visual Studio 2022 veya Visual Studio 
 
 Kurulum Talimatları
 
-Depoyu klonlayın: Copygit clone https://github.com/kullaniciadin/DentalClinicManagement.git cd DentalClinicManagement
+Depoyu klonlayın: Copygit clone https://github.com/perihanozby/DentalClinicManagement cd DentalClinicManagement
 
 Bağlantı dizesini güncelleyin:
 
