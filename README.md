@@ -1,25 +1,41 @@
-Diş Kliniği Yönetim Sistemi Bu proje, bir diş kliniğini yönetmek için geliştirilmiş bir ASP.NET Core MVC uygulamasıdır. Doktorları, hastaları, randevuları ve ürünleri yönetme işlevselliğini içerir. Gereksinimler
+**Diş Kliniği Yönetim Sistemi 
+Bu proje, bir diş kliniğini yönetmek için geliştirilmiş bir ASP.NET Core MVC uygulamasıdır.
+Doktorları, hastaları, randevuları ve ürünleri yönetme işlevselliğini içerir.
 
-ASP.NET Core 7 veya daha yeni bir sürüm Visual Studio 2022 veya Visual Studio Code SQL Server (LocalDB veya tam sürüm)
+**Gereksinimler
 
-Kurulum Talimatları
+*ASP.NET Core 7 veya daha yeni bir sürüm 
+*Visual Studio 2022 veya Visual Studio Code 
+*SQLite
 
-Depoyu klonlayın: Copygit clone https://github.com/perihanozby/DentalClinicManagement cd DentalClinicManagement
+**Kurulum Talimatları
 
-Bağlantı dizesini güncelleyin:
+*Depoyu klonlayın: Copygit clone https://github.com/perihanozby/DentalClinicManagement 
+cd DentalClinicManagement
 
-appsettings.json dosyasını açın DefaultConnection dizesini SQL Server örneğinize işaret edecek şekilde güncelleyin
+*Bağlantı dizesini güncelleyin:
 
-Veritabanı migrasyonlarını uygulayın: Copydotnet ef database update
+appsettings.json dosyasını açın
+DefaultConnection dizesini SQL Server örneğinize işaret edecek şekilde güncelleyin
 
-Uygulamayı çalıştırın: Copydotnet run
+*Veritabanı migrasyonlarını uygulayın: 
+dotnet ef database update
 
-Bir web tarayıcısı açın ve https://localhost:5271 adresine gidin
+*Uygulamayı çalıştırın: 
+dotnet run
 
-Proje Yapısı
+*Bir web tarayıcısı açın ve https://localhost:5271 adresine gidin
 
-Controllers/: MVC denetleyicilerini içerir (AppointmentController, DoctorController, HomeController, PatientController, ProductController) Models/: Veri modellerini içerir (Appointment, Doctor, Patient, Product) Views/: Her denetleyici için Razor görünümlerini içerir Data/: ApplicationDbContext ve veritabanı migrasyonlarını içerir
+**Proje Yapısı
 
-Özellikler
+*Controllers/: MVC denetleyicilerini içerir (AppointmentController, DoctorController, HomeController, PatientController, ProductController) 
+*Models/: Veri modellerini içerir (Appointment, Doctor, Patient, Product) 
+*Views/: Her denetleyici için Razor görünümlerini içerir 
+*Data/: ApplicationDbContext ve veritabanı migrasyonlarını içerir
 
-Doktorları yönetme (CRUD işlemleri) Hastaları yönetme (CRUD işlemleri) Randevuları planlama ve yönetme Diş ürünlerini yönetme
+**Özellikler
+
+*Doktorları yönetme (CRUD işlemleri) 
+*Hastaları yönetme (CRUD işlemleri) 
+*Randevuları planlama ve yönetme 
+*Diş ürün stoğunu yönetme
