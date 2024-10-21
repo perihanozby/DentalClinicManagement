@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<DentalClinicManagement.Models.Patient>
 
 <h2>Hasta Listesi</h2>
-<a asp-action="Create" style="color:blue">Yeni Hasta Ekle</a>
+<a asp-action="Create">Yeni Hasta Ekle</a>
 
-<table class="table">
+<table class="container">
     <thead>
         <tr>
             <th>Ad</th>
@@ -16,7 +16,7 @@
 
         </tr>
     </thead>
-    <tbody style="color:darkred">
+    <tbody>
         @foreach (var patient in Model)
         {
             <tr>
@@ -27,8 +27,8 @@
                 <td>@patient.Email</td>
                 <td>@patient.Address</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@patient.Id" style="color:green">Düzenle</a>
-                    <a asp-action="Delete" asp-route-id="@patient.Id" style="color:red">Sil</a>
+                    <a asp-action="Edit" asp-route-id="@patient.Id">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@patient.Id">Sil</a>
                 </td>
             </tr>
         }

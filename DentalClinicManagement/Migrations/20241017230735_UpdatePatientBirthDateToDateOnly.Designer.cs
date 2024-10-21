@@ -11,14 +11,31 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DentalClinicManagement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241013233530_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241017230735_UpdatePatientBirthDateToDateOnly")]
+    partial class UpdatePatientBirthDateToDateOnly
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
+
+            modelBuilder.Entity("DentalClinicManagement.Models.AdminUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdminUsers");
+                });
 
             modelBuilder.Entity("DentalClinicManagement.Models.Appointment", b =>
                 {
@@ -82,7 +99,7 @@ namespace DentalClinicManagement.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateOnly?>("BirthDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")

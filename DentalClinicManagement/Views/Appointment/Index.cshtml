@@ -3,7 +3,7 @@
 <h1>Randevu Listesi</h1>
 <a asp-controller="Appointment" asp-action="Create">Yeni Randevu Oluştur</a>
 
-<table class="table">
+<table class="container">
     <thead>
         <tr>
             <th>Hasta</th>
@@ -17,9 +17,9 @@
         @foreach (var appointment in Model)
         {
             <tr>
-                <td>@appointment.Patient</td>
-                <td>@appointment.Doctor</td>
-                <td>@appointment.Date</td>
+                <td>@appointment.Patient?.FullName</td>
+                <td>@appointment.Doctor?.FullName</td> 
+                <td>@appointment.Date.ToString("dd.MM.yyyy HH:mm")</td> 
                 <td>@appointment.Notes</td>
                 <td>
                     <a asp-controller="Appointment" asp-action="Edit" asp-route-id="@appointment.Id">Düzenle</a> |

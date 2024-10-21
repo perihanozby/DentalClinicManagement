@@ -1,23 +1,84 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    background-color: #f4f6f8; /* Açýk gri arka plan */
+    font-family: Arial, sans-serif; /* Modern font */
 }
 
+.header {
+    background-color: #007bff; /* Baþlýk arka plan rengi */
+    color: white;
+    padding: 15px 0; /* Üst ve alt padding */
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #0056b3; /* Navbar rengi */
+}
+
+    .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+        .navbar a:hover {
+            background-color: #003d7a; /* Hover efekti */
+        }
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: white; /* Ýçerik arka plan rengi */
+    border-radius: 8px; /* Kenar yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+}
+
+h1 {
+    color: #007bff; /* Baþlýk rengi */
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Kenarlarý birleþtir */
+    margin-top: 20px;
+}
+
+    .table th, .table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd; /* Alt kenar rengi */
+    }
+
+    .table th {
+        background-color: #f1f1f1; /* Baþlýk arka plan rengi */
+    }
+
+    .table tr:hover {
+        background-color: #f9f9f9; /* Satýr hover efekti */
+    }
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #28a745; /* Yeþil buton rengi */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s; /* Buton geçiþ efekti */
+}
+
+    .btn:hover {
+        background-color: #218838; /* Hover efekti */
+    }
+
+.btn-danger {
+    background-color: #dc3545; /* Kýrmýzý buton rengi */
+}
+
+    .btn-danger:hover {
+        background-color: #c82333; /* Hover efekti */
+    }

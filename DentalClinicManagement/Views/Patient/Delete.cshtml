@@ -5,9 +5,8 @@
 <h4>@Model.FirstName @Model.LastName</h4>
 <p>Bu hastayı silmek istediğinizden emin misiniz?</p>
 
-<form asp-action="DeleteConfirmed" method="post">
+<form asp-action="Delete" >
     <input type="hidden" asp-for="Id" />
-    <button type="submit">Sil</button>
-
+    <input type="submit" value="Sil" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
 </form>
-<a asp-action="Index">İptal</a>

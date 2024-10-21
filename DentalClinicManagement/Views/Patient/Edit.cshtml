@@ -1,32 +1,39 @@
 ﻿@model DentalClinicManagement.Models.Patient
 
-<h2>Hasta Bilgileri Düzenle</h2>
+<h2>Hasta Bilgilerini Düzenle</h2>
 
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
-    <div>
-        <label>Ad:</label>
-        <input asp-for="FirstName" required />
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label">Ad</label>
+        <input asp-for="FirstName" class="form-control" required />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
-    <div>
-        <label>Soyad:</label>
-        <input asp-for="LastName" required />
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label">Soyad</label>
+        <input asp-for="LastName" class="form-control" required />
+        <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
-    <div>
-        <label>Doğum Tarihi:</label>
-        <input asp-for="BirthDate" required />
+    <div class="form-group">
+        <label asp-for="BirthDate" class="control-label">Doğum Tarihi</label>
+        <input asp-for="BirthDate" class="form-control" required type="date" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
     </div>
-    <div>
-        <label>Telefon Numarası:</label>
-        <input asp-for="PhoneNumber" required />
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="control-label">Telefon Numarası</label>
+        <input asp-for="PhoneNumber" class="form-control" required />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
     </div>
-    <div>
-        <label>Email:</label>
-        <input asp-for="Email" required />
+    <div class="form-group">
+        <label asp-for="Email" class="control-label">E-posta</label>
+        <input asp-for="Email" class="form-control" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
-    <div>
-        <label>Adres:</label>
-        <input asp-for="Address" required />
+    <div class="form-group">
+        <label asp-for="Address" class="control-label">Adres</label>
+        <input asp-for="Address" class="form-control" required />
+        <span asp-validation-for="Address" class="text-danger"></span>
     </div>
-    <button type="submit">Güncelle</button>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a asp-action="Index" class="btn btn-secondary">Listeye Geri Dön</a>
 </form>

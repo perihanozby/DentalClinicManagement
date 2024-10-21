@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using DentalClinicManagement.Data;
 using DentalClinicManagement.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DentalClinicManagement.Controllers
 {
@@ -17,16 +18,19 @@ namespace DentalClinicManagement.Controllers
         public async Task<IActionResult> Index()
         {
             var appointments = await _context.Appointments
-                .Include(a => a.Patient)  // Hasta bilgilerini de dahil ediyoruz
-                .Include(a => a.Doctor)   // Doktor bilgilerini de dahil ediyoruz
+                .Include(a => a.Patient) 
+                .Include(a => a.Doctor)   
                 .ToListAsync();
             return View(appointments);
         }
 
         public IActionResult Create()
         {
+            ViewBag.Patients = new SelectList(_context.Patients, "Id", "FullName"); 
+            ViewBag.Doctors = new SelectList(_context.Doctors, "Id", "FullName");
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -34,6 +38,13 @@ namespace DentalClinicManagement.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!_context.Patients.Any(p => p.Id == appointment.PatientId) ||
+                    !_context.Doctors.Any(d => d.Id == appointment.DoctorId))
+                {
+                    ModelState.AddModelError("", "Seçilen hasta veya doktor mevcut değil.");
+                    return View(appointment);
+                }
+
                 _context.Add(appointment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

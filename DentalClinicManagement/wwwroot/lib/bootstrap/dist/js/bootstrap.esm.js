@@ -567,8 +567,8 @@ const EventHandler = {
     }
 
     if (isNative) {
-      evt = document.createEvent('HTMLEvents');
-      evt.initEvent(typeEvent, bubbles, true);
+        evt = document.createEvent('HTMLEvents');
+        evt.CustomEvent(typeEvent, bubbles, true);
     } else {
       evt = new CustomEvent(event, {
         bubbles,
@@ -970,9 +970,9 @@ const Manipulator = {
 
   offset(element) {
     const rect = element.getBoundingClientRect();
-    return {
-      top: rect.top + window.pageYOffset,
-      left: rect.left + window.pageXOffset
+      return {
+          top: rect.top + window.scrollY,
+          left: rect.left + window.scrollX
     };
   },
 
